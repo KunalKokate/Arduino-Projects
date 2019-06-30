@@ -1,0 +1,35 @@
+/*PWM Pins for Atmega 328
+9
+10
+11
+3
+5
+6
+*/
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(A0,INPUT);
+  pinMode(9,OUTPUT);
+}
+ 
+void loop()
+{  
+   int sensorValue=analogRead(A0);     
+   if (sensorValue < 100)
+  {
+
+    Serial.println("LED light ON");
+    digitalWrite(9, HIGH);
+    delay(1000);
+    }
+   
+   if (sensorValue > 100)
+   {
+    Serial.println("LED light OFF");
+    digitalWrite(9, LOW);
+    delay(1000);
+   }
+
+}
